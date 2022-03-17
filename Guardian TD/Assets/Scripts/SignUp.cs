@@ -131,6 +131,7 @@ public class SignUp : MonoBehaviour
             else
             {
                 ErrorMessageSignUp.text = isPasswordValid;
+                SceneManager.LoadScene("SignUpMenu");
             }
 
 
@@ -141,4 +142,5 @@ public class SignUp : MonoBehaviour
     {
         SceneManager.LoadScene("LoginMenu");
     }
+   
 }
