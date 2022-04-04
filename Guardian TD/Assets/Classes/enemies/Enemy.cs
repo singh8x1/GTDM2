@@ -6,8 +6,6 @@ public class Enemy : MonoBehaviour
 
 {
     public int NodeIndex;
-    public Transform RootPart;
-    public float DamageResistance = 1f;
     /** \Max health of enemies in float */
     public float MaxHealth;
     /** \health of enemies in float at an instance*/
@@ -17,7 +15,7 @@ public class Enemy : MonoBehaviour
     /** \ enemies ID */
     public int ID;
 
- 
+    public int level;
 
     /// <summary>
     /// initializes the healthpool of enemies to max health of enemies
@@ -25,7 +23,7 @@ public class Enemy : MonoBehaviour
     public void Init()
     {
         
-        Health = MaxHealth;
+        Health = MaxHealth*level;
         transform.position = GameloopManager.NodePositions[0];
         NodeIndex = 0;
 

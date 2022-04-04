@@ -8,12 +8,12 @@ using UnityEngine;
 public class GameloopManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    
+
     /** \To check the summoned enemy in game */
     public static Vector3[] NodePositions;
  
     public static List<TowerBehavior> TowersInGame;
-    private static Queue<EnemyDamageData> DamageData;
+
     public static float[] NodeDistances;
     public static Queue<Enemy> EnemiesToRemove;
     private static Queue<int> EnemyIDsToSummon;
@@ -25,7 +25,7 @@ public class GameloopManager : MonoBehaviour
     private void Start()
     {
 
-        DamageData = new Queue<EnemyDamageData>();
+        
 
         TowersInGame = new List<TowerBehavior>();
         EnemyIDsToSummon = new Queue<int>();
@@ -139,21 +139,8 @@ public class GameloopManager : MonoBehaviour
             //Apply effects
 
 
-            //damage Enemies enemies
-            if (DamageData.Count > 0)
-            {
-                for (int i = 0; i < DamageData.Count; i++)
-                {
-                    EnemyDamageData CurrentDamageData = DamageData.Dequeue();
-                    CurrentDamageData.TargetedEnemy.Health -= CurrentDamageData.TotalDamage / CurrentDamageData.Resistance;
-
-                    if(CurrentDamageData.TargetedEnemy.Health <= 0F) 
-                    {
-                        EnqueueEnemyToRemove(CurrentDamageData.TargetedEnemy);
-                    }
-                }
-            }
-            //remove Enemies
+            //Damage enemies
+            //remove enemies
 
             if (EnemiesToRemove.Count > 0)
             {
@@ -167,12 +154,6 @@ public class GameloopManager : MonoBehaviour
             yield return null;
 
         }
-    }
-
-
-    public static void EnqueueDamageData(EnemyDamageData damagedata)
-    {
-        DamageData.Enqueue(damagedata);
     }
 
     /// <summary>
@@ -191,19 +172,6 @@ public class GameloopManager : MonoBehaviour
     }
 }
 
-public struct EnemyDamageData
-{
-
-    public EnemyDamageData(Enemy target, float damage, float resistance)
-    {
-        TargetedEnemy = target;
-        TotalDamage = damage;
-        Resistance = resistance;
-    }
-    public Enemy TargetedEnemy;
-    public float TotalDamage;
-    public float Resistance;
-}
 
 public struct MoveEnemiesJob: IJobParallelForTransform
 {

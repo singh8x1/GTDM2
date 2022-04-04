@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637825746287172991
-    m_Hash: 1201685854
+      ticks: 637823835638704916
+    m_Hash: 2007782041
   m_LockFileStatus:
     m_FilePath: D:/FFFF/SDDd/Guardian-TD/Guardian TD/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637825746287182985
-    m_Hash: 4105781450
+      ticks: 637823835638749900
+    m_Hash: 3003221616
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -761,7 +761,6 @@ m_PackageAssets:
         - 2.1.6
         - 2.2.0-preview.1
         - 2.2.0-preview.2
-        - 2.2.0-preview.3
         - 3.0.0-preview.1
         - 3.0.0-preview.3
         - 3.0.0-preview.4
@@ -917,7 +916,6 @@ m_PackageAssets:
         - 1.7.0-pre.1
         - 1.7.0-pre.2
         - 1.7.0
-        - 1.7.1
         compatible:
         - 1.4.8
         - 1.5.0-pre.2
@@ -945,7 +943,6 @@ m_PackageAssets:
         - 1.7.0-pre.1
         - 1.7.0-pre.2
         - 1.7.0
-        - 1.7.1
         verified: 1.4.8
       dependencies:
       - name: com.unity.modules.director

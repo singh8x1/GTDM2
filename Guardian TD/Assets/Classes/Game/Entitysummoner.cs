@@ -83,9 +83,8 @@ public class Entitysummoner : MonoBehaviour
             Debug.Log("Does not exis {EnemyID}");
             return null;
         }
-
+        EnemiesInGameTransform.Add(SummonedEnemy.transform);
         EnemiesInGame.Add(SummonedEnemy);
-         EnemiesInGameTransform.Add(SummonedEnemy.transform);
         SummonedEnemy.ID = EnemyID;
         return SummonedEnemy;
     }
