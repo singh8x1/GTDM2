@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// Player movement class added to move around in map
+/// Player movement class added to move around in map in all four directions
+/// 
 /// </summary>
 public class PlayerMovement : MonoBehaviour
 {

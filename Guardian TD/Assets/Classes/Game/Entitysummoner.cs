@@ -9,7 +9,7 @@ public class Entitysummoner : MonoBehaviour
     public static List<Enemy> EnemiesInGame;
     /** \Dictionary to call game object that is enemy prefabs */
     public static Dictionary<int, GameObject> EnemyPrefabs;
-
+    public static Dictionary<Transform, Enemy> EnemyTransformPairs;
     public static List<Transform> EnemiesInGameTransform;
     /** \Dictionary to Queue enemy object pool */
     public static Dictionary<int, Queue<Enemy>> EnemyObjectPools;
@@ -22,7 +22,7 @@ public class Entitysummoner : MonoBehaviour
     {
        if (!IsIntialized)
         {
-
+            EnemyTransformPairs = new Dictionary<Transform, Enemy>();
             /** \Getting enemy from dictionary */
             EnemyPrefabs = new Dictionary<int, GameObject>();
             /** \creating enemy object pool */
@@ -83,8 +83,11 @@ public class Entitysummoner : MonoBehaviour
             Debug.Log("Does not exis {EnemyID}");
             return null;
         }
-        EnemiesInGameTransform.Add(SummonedEnemy.transform);
+
         EnemiesInGame.Add(SummonedEnemy);
+         EnemiesInGameTransform.Add(SummonedEnemy.transform);
+       // if (!EnemyTransformPairs.ContainsKey(SummonedEnemy.transform))
+       EnemyTransformPairs.Add(SummonedEnemy.transform, SummonedEnemy);
         SummonedEnemy.ID = EnemyID;
         return SummonedEnemy;
     }
@@ -97,6 +100,8 @@ public class Entitysummoner : MonoBehaviour
     {
         EnemyObjectPools[EnemyToRemove.ID].Enqueue(EnemyToRemove);
         EnemyToRemove.gameObject.SetActive(false);
+
+        EnemyTransformPairs.Remove(EnemyToRemove.transform);
         EnemiesInGameTransform.Remove(EnemyToRemove.transform);
         EnemiesInGame.Remove(EnemyToRemove);
 
